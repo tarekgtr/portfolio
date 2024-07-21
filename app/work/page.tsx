@@ -37,7 +37,7 @@ const work = [
   },
   {
     title: "Simple project microservices",
-    description: "Back-end peoject employs a microservices architecture,",
+    description: "Back-end project employs a microservices architecture,",
     technologies: [
       "Java 17",
       "SpringBoot 2.7",

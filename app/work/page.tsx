@@ -110,14 +110,14 @@ const Work = () => {
             my experience and skills across various domains and technologies.
           </p>
         </div>
-        <div className="flex flex-wrap items-start justify-center w-[100%] h-[100%] gap-8">
+        <div className="flex flex-wrap items-start justify-around w-[100%] h-[100%] gap-8">
           {work.map((item, index) => {
             return (
               <div
                 key={index}
-                className="flex flex-col w-[350px] h-fit items-start justify-center border border-accent/20 rounded-md hover:shadow-sm hover:shadow-accent/50 transition-all p-2"
+                className="flex flex-col w-[350px] h-fit items-start justify-center border border-accent/20 rounded-md hover:shadow-md hover:shadow-accent/50 transition-all p-2"
               >
-                <div className="flex items-center justify-center w-[100%]">
+                <div className="flex items-center justify-center w-[100%] ">
                   <div className="w-[320px] h-[200px] relative overflow-hidden rounded-md flex items-center justify-center">
                     <Image
                       src={item.image}

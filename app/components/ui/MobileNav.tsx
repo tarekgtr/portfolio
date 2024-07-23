@@ -36,7 +36,7 @@ const MobileNav = () => {
           {/* logo */}
           <Link href={"/"}>
             <h1 className="text-4xl font-semibold">
-              Tarek<span className="text-accent">.</span>
+              Tarek<span className="text-accent text-sm">{"/gt"}</span>
             </h1>
           </Link>
         </div>

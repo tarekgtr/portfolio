@@ -3,11 +3,81 @@
 @tailwind utilities;
 
 @layer base {
-  body{
-    @apply font-primary bg-primary text-white leading-loose;
+  html {
+    scroll-behavior: smooth;
+    /* offset for sticky navbar when jumping to anchors */
+    scroll-padding-top: 6rem;
   }
-  .h1{
-    @apply text-[48px] xl:text-[80px]  font-semibold;
+
+  body {
+    @apply bg-background font-sans text-white/80 antialiased;
+    background-image: radial-gradient(
+        60rem 40rem at 80% -10%,
+        rgba(218, 230, 90, 0.08),
+        transparent 60%
+      ),
+      radial-gradient(
+        50rem 40rem at -10% 20%,
+        rgba(120, 90, 230, 0.07),
+        transparent 60%
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-accent text-black;
+  }
+
+  /* custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0a090f;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2a2935;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3a3947;
   }
 }
 
+@layer components {
+  .container-px {
+    @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+  }
+
+  .section {
+    @apply scroll-mt-24 py-20 sm:py-28;
+  }
+
+  .glass {
+    @apply border border-white/10 bg-white/5 backdrop-blur-xl;
+  }
+
+  .card {
+    @apply rounded-2xl border border-white/10 bg-surface/70 transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    @apply -translate-y-1 border-accent/40 shadow-glow;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-white via-white to-accent bg-clip-text text-transparent;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-white/70 transition-colors;
+  }
+
+  .chip:hover {
+    @apply border-accent/40 text-white;
+  }
+
+  .eyebrow {
+    @apply font-mono text-sm uppercase tracking-[0.25em] text-accent;
+  }
+}

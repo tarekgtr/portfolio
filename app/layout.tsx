@@ -1,19 +1,37 @@
 import type { Metadata } from "next";
-import { Martian_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-//components
-import Header from "./components/ui/Header";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import { profile } from "./data/portfolio";
 
-const martianMono = Martian_Mono({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
-  variable: "--font-martianMono",
+  variable: "--font-sans",
+  display: "swap",
+});
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Tarek GOUFA",
-  description: "Welcome to my portfolio",
+  title: `${profile.name} — ${profile.role}`,
+  description: profile.summary,
+  openGraph: {
+    title: `${profile.name} — ${profile.role}`,
+    description: profile.tagline,
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -22,18 +40,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-      </head>
-      <body className={martianMono.variable}>
-        <Header />
-        {children}
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      >
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
